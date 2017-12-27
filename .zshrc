@@ -3,15 +3,17 @@
 #########################################################
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/fangpeng/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 DEFAULT_USER="$USER"
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
+# Install ZSH_THEME: lambda-mod https://github.com/halfo/lambda-mod-zsh-theme
 ZSH_THEME="lambda-mod"
 
+# Install thefuck : https://github.com/nvbn/thefuck
 eval "$(thefuck --alias)"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,6 +57,7 @@ DISABLE_LS_COLORS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Install:
 plugins=(git osx autojump brew node npm web-search zsh-autosuggestions extract)
 
 # User configuration
@@ -86,6 +89,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/h
 #    exec tmux -S /var/tmux/$USER new-session -A -s "$USER"
 #fi
 
+# Install mvim
 export EDITOR='mvim -v'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -127,7 +131,7 @@ alias lintpy="python -m 'autopep8' --in-place --aggressive --aggressive"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # alias for proxy
-alias proxy="export ALL_PROXY=socks5://127.0.0.1:7070"
+alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unproxy="unset ALL_PROXY"
 alias ip="curl https://haoip.cn/"
 
@@ -253,41 +257,44 @@ export PATH="/usr/local/Cellar/postgresql@9.6/9.6.5/bin:$PATH"
 #### FBI WARNING
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-_COLUMNS=$(tput cols)
-_MESSAGE=" FBI Warining "
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
+function fbi() {
+    _COLUMNS=$(tput cols)
+    _MESSAGE=" FBI Warining "
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
 
-echo " "
-echo -e "${spaces}\033[41;37;5m FBI WARNING \033[0m"
-echo " "
-_COLUMNS=$(tput cols)
-_MESSAGE="Ferderal Law provides severe civil and criminal penalties for"
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+    echo " "
+    echo -e "${spaces}\033[41;37;5m FBI WARNING \033[0m"
+    echo " "
+    _COLUMNS=$(tput cols)
+    _MESSAGE="Ferderal Law provides severe civil and criminal penalties for"
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
+    echo -e "${spaces}${_MESSAGE}"
 
-_COLUMNS=$(tput cols)
-_MESSAGE="the unauthorized reproduction, distribution, or exhibition of"
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+    _COLUMNS=$(tput cols)
+    _MESSAGE="the unauthorized reproduction, distribution, or exhibition of"
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
+    echo -e "${spaces}${_MESSAGE}"
 
-_COLUMNS=$(tput cols)
-_MESSAGE="copyrighted motion pictures (Title 17, United States Code,"
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+    _COLUMNS=$(tput cols)
+    _MESSAGE="copyrighted motion pictures (Title 17, United States Code,"
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
+    echo -e "${spaces}${_MESSAGE}"
 
-_COLUMNS=$(tput cols)
-_MESSAGE="Sections 501 and 508). The Federal Bureau of Investigation"
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+    _COLUMNS=$(tput cols)
+    _MESSAGE="Sections 501 and 508). The Federal Bureau of Investigation"
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
+    echo -e "${spaces}${_MESSAGE}"
 
-_COLUMNS=$(tput cols)
-_MESSAGE="investigates allegations of criminal copyright infringement"
-y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
-spaces=$(printf "%-${y}s" " ")
-echo -e "${spaces}${_MESSAGE}"
+    _COLUMNS=$(tput cols)
+    _MESSAGE="investigates allegations of criminal copyright infringement"
+    y=$(( ( $_COLUMNS - ${#_MESSAGE} )  / 2 ))
+    spaces=$(printf "%-${y}s" " ")
+    echo -e "${spaces}${_MESSAGE}"
+}
+fbi
 ######### END Logo ########
